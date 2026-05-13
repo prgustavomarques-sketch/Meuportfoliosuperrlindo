@@ -17,16 +17,16 @@ const contacts = [
   {
     name: "Discord",
     icon: MessageCircle,
-    href: "https://discord.com/users/seuid",
-    username: "seuusuario#0000",
+    href: "https://discord.com/users/1263948262034116730",
+    username: "imnotagaessiiii",
     color: "hover:text-white hover:bg-[#5865F2]",
     description: "Me adicione para conversarmos",
   },
   {
     name: "Email",
     icon: Mail,
-    href: "mailto:seuemail@email.com",
-    username: "seuemail@email.com",
+    href: "mailto:Super.DeveloperNew@Hotmail.com",
+    username: "Super.DeveloperNew@Hotmail.com",
     color: "hover:text-white hover:bg-red-500",
     description: "Entre em contato profissional",
   },
@@ -34,7 +34,7 @@ const contacts = [
     name: "LinkedIn",
     icon: Linkedin,
     href: "https://linkedin.com/in/seuusuario",
-    username: "/in/seuusuario",
+    username: "Desativo",
     color: "hover:text-white hover:bg-[#0A66C2]",
     description: "Conecte-se profissionalmente",
   },
@@ -128,7 +128,7 @@ export function Contact() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto"
                 asChild
               >
-                <a href="mailto:seuemail@email.com">
+                <a href="mailto:Super.DeveloperNew@Hotmail.com">
                   <Mail className="w-4 h-4 mr-2" />
                   Enviar Email
                 </a>
