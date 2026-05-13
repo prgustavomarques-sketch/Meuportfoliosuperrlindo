@@ -10,7 +10,7 @@ const contacts = [
     name: "GitHub",
     icon: Github,
     href: "https://github.com/seuusuario",
-    username: "Desativo",
+    username: "Gustavo Marques ",
     color: "hover:text-white hover:bg-[#333]",
     description: "Veja meus projetos e contribuições",
   },

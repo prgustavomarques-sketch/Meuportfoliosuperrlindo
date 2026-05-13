@@ -22,7 +22,7 @@ const projects = [
     image: "/projects/fullstack.jpg",
     icon: Globe,
     technologies: ["Next.js", "Node.js", "HTML5", "CSS3", "TypeScript"],
-    github: "https://github.com",
+    github: "https://github.com/prgustavomarques-sketch/Meuportfoliosuperrlindo",
     demo: "https://v0-meu-portfolio-super.vercel.app/",
     color: "from-pink-500/20 to-rose-500/20",
   },
