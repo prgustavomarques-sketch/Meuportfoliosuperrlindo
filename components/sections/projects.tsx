@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "Aplicação Full Stack",
-    description: "E-commerce completo com carrinho, pagamentos, painel admin, sistema de reviews e recomendações personalizadas baseadas em IA.",
+    description: "Um pequeno portfólio para apresentar meus trabalhos e minhas ideias geniais!",
     image: "/projects/fullstack.jpg",
     icon: Globe,
     technologies: ["Next.js", "Node.js", "HTML5", "CSS3", "TypeScript"],
