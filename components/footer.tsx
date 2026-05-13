@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, MessageCircle } from "lucide-react"
+import { Github, Linkedin, Mail, MessageCircle, Heart } from "lucide-react"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com", label: "GitHub" },
@@ -26,8 +26,8 @@ export function Footer() {
           {/* Logo and Copyright */}
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="text-lg font-bold gradient-text">{"<SD />"}</span>
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} Super Dev
+            <p className="text-sm text-muted-foreground flex items-center gap-1">
+              © {currentYear} • Feito com <Heart className="w-3 h-3 text-red-500 fill-red-500" /> por Super Dev
             </p>
           </div>
 
