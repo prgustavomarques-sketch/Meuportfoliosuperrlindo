@@ -89,9 +89,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <span className="gradient-text">Gustavo</span>
+            <span className="gradient-text">Super</span>
             <br />
-            <span className="text-foreground">Marques</span>
+            <span className="text-foreground">Dev</span>
           </motion.h1>
 
           {/* Subtitle */}

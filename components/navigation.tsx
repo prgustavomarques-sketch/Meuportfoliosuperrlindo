@@ -55,7 +55,7 @@ export function Navigation() {
                 window.scrollTo({ top: 0, behavior: "smooth" })
               }}
             >
-              {"<GM />"}
+              {"<SD />"}
             </a>
 
             {/* Desktop Navigation */}
