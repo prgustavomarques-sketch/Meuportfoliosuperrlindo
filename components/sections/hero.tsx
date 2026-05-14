@@ -1,53 +1,18 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowDown, Github, Mail } from "lucide-react"
+import { ArrowDown, Mail, Code2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background */}
+      {/* Simplified background - better performance */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient orbs */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px]"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-accent/20 blur-[100px]"
-          animate={{
-            x: [0, -40, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-[300px] h-[300px] rounded-full bg-chart-3/15 blur-[80px]"
-          animate={{
-            x: [0, 60, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        {/* Static gradient orbs - no animation for better performance */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/15 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-accent/15 blur-[100px]" />
         
         {/* Grid pattern */}
         <div 
@@ -66,7 +31,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           {/* Badge */}
           <motion.div
@@ -101,7 +66,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Desenvolvedor Full Stack • Automação com IA • Bots para Discord
+            Desenvolvedor Full Stack | Automação com IA | Bots para Discord
           </motion.p>
 
           {/* Description */}
@@ -130,6 +95,17 @@ export function Hero() {
                 Ver Projetos
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
               </span>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="glass border-border/50 hover:bg-secondary/50 px-8"
+              asChild
+            >
+              <Link href="/playground">
+                <Code2 className="w-4 h-4 mr-2" />
+                Playground
+              </Link>
             </Button>
             <Button
               variant="outline"
