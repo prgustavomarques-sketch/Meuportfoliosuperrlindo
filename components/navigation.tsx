@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -16,6 +17,8 @@ const navItems = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +31,13 @@ export function Navigation() {
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false)
+    
+    // If not on /home, navigate there first
+    if (pathname !== "/home") {
+      router.push(`/home${href}`)
+      return
+    }
+    
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -48,11 +58,15 @@ export function Navigation() {
           <nav className="flex items-center justify-between">
             {/* Logo */}
             <a 
-              href="#" 
+              href="/home" 
               className="text-xl font-bold gradient-text"
               onClick={(e) => {
                 e.preventDefault()
-                window.scrollTo({ top: 0, behavior: "smooth" })
+                if (pathname === "/home") {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                } else {
+                  router.push("/home")
+                }
               }}
             >
               {"<SD />"}
