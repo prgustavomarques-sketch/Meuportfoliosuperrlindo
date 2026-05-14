@@ -10,7 +10,7 @@ const contacts = [
     name: "GitHub",
     icon: Github,
     href: "https://github.com/seuusuario",
-    username: "Gustavo Marques ",
+    username: " Marques ",
     color: "hover:text-white hover:bg-[#333]",
     description: "Veja meus projetos e contribuições",
   },
@@ -25,15 +25,15 @@ const contacts = [
   {
     name: "Email",
     icon: Mail,
-    href: "mailto:Super.DeveloperNew@Hotmail.com",
-    username: "Super.DeveloperNew@Hotmail.com",
+    href: "mailto:Super.DeveloperNow@Hotmail.com",
+    username: "Super.DeveloperNow@Hotmail.com",
     color: "hover:text-white hover:bg-red-500",
     description: "Entre em contato profissional",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com/in/seuusuario",
+    href: "https://linkedin.com",
     username: "Desativo",
     color: "hover:text-white hover:bg-[#0A66C2]",
     description: "Conecte-se profissionalmente",
@@ -128,7 +128,7 @@ export function Contact() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto"
                 asChild
               >
-                <a href="mailto:Super.DeveloperNew@Hotmail.com">
+                <a href="mailto:Super.DeveloperNow@Hotmail.com">
                   <Mail className="w-4 h-4 mr-2" />
                   Enviar Email
                 </a>
