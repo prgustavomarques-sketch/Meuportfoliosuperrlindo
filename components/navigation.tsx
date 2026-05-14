@@ -2,20 +2,25 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Code2, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const navItems = [
-  { name: "Sobre", href: "#sobre" },
-  { name: "Stack", href: "#stack" },
-  { name: "Playground", href: "#playground" },
-  { name: "Projetos", href: "#projetos" },
-  { name: "Contato", href: "#contato" },
+  { name: "Sobre", href: "/#sobre" },
+  { name: "Stack", href: "/#stack" },
+  { name: "Projetos", href: "/#projetos" },
+  { name: "Contato", href: "/#contato" },
 ]
+
+const playgroundLink = { name: "Playground", href: "/playground", isPage: true }
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +33,20 @@ export function Navigation() {
 
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    
+    // Se for uma âncora na mesma página
+    if (href.startsWith("/#") && isHome) {
+      const element = document.querySelector(href.replace("/", ""))
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }
+
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    if (href.startsWith("/#") && isHome) {
+      e.preventDefault()
+      scrollToSection(href)
     }
   }
 
@@ -47,28 +63,32 @@ export function Navigation() {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between">
             {/* Logo */}
-            <a 
-              href="#" 
+            <Link 
+              href="/" 
               className="text-xl font-bold gradient-text"
-              onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: "smooth" })
-              }}
             >
               {"<SD />"}
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(item.href, e)}
                   className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
+              <Link
+                href={playgroundLink.href}
+                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50 flex items-center gap-1.5"
+              >
+                <Code2 className="w-4 h-4" />
+                {playgroundLink.name}
+              </Link>
             </div>
 
             {/* CTA Button */}
@@ -76,9 +96,11 @@ export function Navigation() {
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                onClick={() => scrollToSection("#contato")}
+                asChild
               >
-                Entre em Contato
+                <Link href="/#contato">
+                  Entre em Contato
+                </Link>
               </Button>
             </div>
 
@@ -105,20 +127,35 @@ export function Navigation() {
             <div className="glass-strong m-4 rounded-xl p-4 border border-border/50">
               <div className="flex flex-col gap-2">
                 {navItems.map((item) => (
-                  <button
+                  <Link
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                    href={item.href}
+                    onClick={(e) => {
+                      handleNavClick(item.href, e)
+                      setIsMobileMenuOpen(false)
+                    }}
                     className="px-4 py-3 text-left text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
                   >
                     {item.name}
-                  </button>
+                  </Link>
                 ))}
+                <Link
+                  href={playgroundLink.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-4 py-3 text-left text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors flex items-center gap-2"
+                >
+                  <Code2 className="w-4 h-4" />
+                  {playgroundLink.name}
+                  <ExternalLink className="w-3 h-3 ml-auto" />
+                </Link>
                 <hr className="border-border/50 my-2" />
                 <Button
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => scrollToSection("#contato")}
+                  asChild
                 >
-                  Entre em Contato
+                  <Link href="/#contato" onClick={() => setIsMobileMenuOpen(false)}>
+                    Entre em Contato
+                  </Link>
                 </Button>
               </div>
             </div>

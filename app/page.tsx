@@ -1,11 +1,24 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/sections/hero"
-import { About } from "@/components/sections/about"
-import { TechStack } from "@/components/sections/tech-stack"
-import { CodePlayground } from "@/components/sections/code-playground"
-import { Projects } from "@/components/sections/projects"
-import { Contact } from "@/components/sections/contact"
 import { Footer } from "@/components/footer"
+import dynamic from "next/dynamic"
+
+// Lazy loading dos componentes menos críticos para melhorar performance
+const About = dynamic(() => import("@/components/sections/about").then(mod => ({ default: mod.About })), {
+  loading: () => <div className="py-24 md:py-32" />
+})
+
+const TechStack = dynamic(() => import("@/components/sections/tech-stack").then(mod => ({ default: mod.TechStack })), {
+  loading: () => <div className="py-24 md:py-32" />
+})
+
+const Projects = dynamic(() => import("@/components/sections/projects").then(mod => ({ default: mod.Projects })), {
+  loading: () => <div className="py-24 md:py-32" />
+})
+
+const Contact = dynamic(() => import("@/components/sections/contact").then(mod => ({ default: mod.Contact })), {
+  loading: () => <div className="py-24 md:py-32" />
+})
 
 export default function Home() {
   return (
@@ -14,7 +27,6 @@ export default function Home() {
       <Hero />
       <About />
       <TechStack />
-      <CodePlayground />
       <Projects />
       <Contact />
       <Footer />
