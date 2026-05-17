@@ -6,14 +6,15 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 const projects = [
+  
   {
-    title: "Bot Avançado para Discord",
-    description: "Bot completo com sistema de moderação, música, economia virtual, níveis e comandos personalizados. Utiliza inteligência artificial para respostas contextuais.",
+    title: "Bot de RPG para Discord",
+    description: "Bot completo completo de RPG/MMO online com tema principal de magia.",
     image: "/projects/discord-bot.jpg",
     icon: Bot,
-    technologies: ["Python", "Discord.py", "PostgreSQL", "Redis", "OpenAI API"],
-    github: "https://github.com",
-    demo: "https://discord.com/invites/eyYBnpF3s",
+    technologies: ["Python", "Discord.py", "PostgreSQL", "Redis", " "],
+    github: "https://github.com/prgustavomarques-sketch/RPGbot",
+    demo: "https://discord.gg/uU86eB4wPf",
     color: "from-indigo-500/20 to-purple-500/20",
   },
   {
