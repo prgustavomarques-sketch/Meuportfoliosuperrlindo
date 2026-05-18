@@ -12,10 +12,10 @@ const projects = [
     description: "Bot completo completo de RPG/MMO online com tema principal de magia.",
     image: "/projects/discord-bot.jpg",
     icon: Bot,
-    technologies: ["Python", "Discord.py", "PostgreSQL", "Redis", " "],
+    technologies: ["Python", "Discord.py", "PostgreSQL", "Redis"],
     github: "https://github.com/prgustavomarques-sketch/RPGbot",
-    demo: "https://discord.gg/uU86eB4wPf",
-    color: "from-indigo-500/20 to-purple-500/20",
+    demo: "https://discord.gg/u82xpuG3JG",
+    color: "from-green-500/20 to-esmerald-500/20",
   },
   {
     title: "Aplicação Full Stack",
@@ -24,7 +24,7 @@ const projects = [
     icon: Globe,
     technologies: ["Next.js", "Node.js", "HTML5", "CSS3", "TypeScript"],
     github: "https://github.com/prgustavomarques-sketch/Meuportfoliosuperrlindo",
-    demo: "https://v0-meu-portfolio-super.vercel.app/",
+    demo: "https://portfoliosuper-meu.vercel.app/",
     color: "from-pink-500/20 to-rose-500/20",
   },
 ]
